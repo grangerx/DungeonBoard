@@ -1,6 +1,14 @@
 # Dungeon Board
 A board game map viewer for DMs and GMs to show players maps/dungeons without spoiling too much
 
+Changes since forking from McAJBen
+- Sorts displays from left to right based on desktop alignment.
+- Has Folder-Open Button at upper left of window (opens to resource folder).
+- The Paint window now allows the zoom-area center to be all the way to the edge of the window.
+  - (Allows centering the displayed screen directly over
+    a part of the map that previously would have been at the edge ofthe displayed area).
+
+
 <a href="https://github.com/McAJBen/DungeonBoard#examples">Examples</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/McAJBen/DungeonBoard#paint-utility">- Paint Utility</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/McAJBen/DungeonBoard#layer-utility">- Layer Utility</a><br>
