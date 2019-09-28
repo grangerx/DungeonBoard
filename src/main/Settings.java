@@ -54,6 +54,11 @@ public class Settings {
 	public static final ImageIcon ICON = load("icon.gif");
 	
 	/**
+	 * the {@code ImageIcon} for a folderopen {@code JButton}
+	 */
+	public static final ImageIcon ICON_FOLDEROPEN = load("folderopen.gif");
+	
+	/**
 	 * the {@code ImageIcon} for a refresh {@code JButton}
 	 */
 	public static final ImageIcon ICON_REFRESH = load("refresh.gif");

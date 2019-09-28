@@ -535,20 +535,24 @@ public class DrawPanel extends JComponent {
 	private void setWindowPos(Point p) {
 		lastWindowClick = p;
 		
-		windowPos.x = (int) (p.x * Settings.PIXELS_PER_MASK - (Settings.DISPLAY_SIZE.width * displayZoom) / 2);
-		windowPos.y = (int) (p.y * Settings.PIXELS_PER_MASK - (Settings.DISPLAY_SIZE.height * displayZoom) / 2);
+		windowPos.x = (int) ((p.x * Settings.PIXELS_PER_MASK) - (Settings.DISPLAY_SIZE.width * displayZoom) / 2);
+		windowPos.y = (int) ((p.y * Settings.PIXELS_PER_MASK) - (Settings.DISPLAY_SIZE.height * displayZoom) / 2);
 		
 		if (Settings.PAINT_IMAGE != null) {
-			if (windowPos.x > Settings.PAINT_IMAGE.getWidth() - Settings.DISPLAY_SIZE.width * displayZoom) {
+			//if (windowPos.x > (Settings.PAINT_IMAGE.getWidth() - Settings.DISPLAY_SIZE.width * displayZoom)) {
+			if (windowPos.x > (Settings.PAINT_IMAGE.getWidth() )) {
 				windowPos.x = (int) (Settings.PAINT_IMAGE.getWidth() - Settings.DISPLAY_SIZE.width * displayZoom);
 			}
-			if (windowPos.x < 0) {
+			//if (windowPos.x < 0) {
+			if (windowPos.x < (0 - (Settings.DISPLAY_SIZE.width * displayZoom) ) ) {
 				windowPos.x = 0;
 			}
-			if (windowPos.y > Settings.PAINT_IMAGE.getHeight() - Settings.DISPLAY_SIZE.height * displayZoom) {
+			//if (windowPos.y > (Settings.PAINT_IMAGE.getHeight() - Settings.DISPLAY_SIZE.height * displayZoom)) {
+			if (windowPos.y > (Settings.PAINT_IMAGE.getHeight() )) {
 				windowPos.y = (int) (Settings.PAINT_IMAGE.getHeight() - Settings.DISPLAY_SIZE.height * displayZoom);
 			}
-			if (windowPos.y < 0) {
+			//if (windowPos.y < 0) {
+			if (windowPos.y < (0 - (Settings.DISPLAY_SIZE.height * displayZoom) )) {
 				windowPos.y = 0;
 			}
 		}

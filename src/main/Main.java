@@ -21,11 +21,20 @@ import display.DisplayPaint;
 import display.DisplayPictures;
 import display.DisplayWindow;
 
+// Add support for Arrays - needed for sorting Screen displays
+import java.util.Arrays; 
+
 /**
  * contains most of the starting code for Dungeon Board
  * @author McAJBen <McAJBen@gmail.com>
  * @since 1.0
  */
+
+
+
+
+
+
 public class Main {
 	
 	/**
@@ -206,11 +215,21 @@ public class Main {
 	 * @throws HeadlessException if the environment does not support a display
 	 */
 	private static Screen[] getScreens() throws HeadlessException {
+		boolean blnDefault = false;
 		GraphicsDevice[] graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
+		GraphicsDevice defaultGraphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		Screen[] screens = new Screen[graphicsDevice.length];
 		for (int i = 0; i < graphicsDevice.length; i++) {
-			screens[i] = new Screen(graphicsDevice[i]);
+			if (graphicsDevice[i] == defaultGraphicsDevice) {
+				blnDefault = true;
+			} else {
+				blnDefault = false;
+			}
+			
+			screens[i] = new Screen(graphicsDevice[i],blnDefault);
 		}
+		Arrays.sort(screens);
+		//Arrays.sort(screens, new SortScreensByX());
 		return screens;
 	}
 	

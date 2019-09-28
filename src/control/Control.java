@@ -1,6 +1,7 @@
 package control;
 
 import java.awt.BorderLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.Settings;
+
+import java.awt.Desktop;
+import java.io.IOException;
 
 /**
  * a {@code JPanel} for all Controls
@@ -34,12 +38,28 @@ public abstract class Control extends JPanel {
 	 */
 	protected JPanel getNorthPanel() {
 		JPanel northPanel = getEmptyNorthPanel();
+		JButton folderopenButton = Settings.createButton(Settings.ICON_FOLDEROPEN);
+		folderopenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Desktop.getDesktop().open(Settings.FOLDER);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		
 		JButton refreshButton = Settings.createButton(Settings.ICON_REFRESH);
 		refreshButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				load();
 			}
 		});
+		
+
+		northPanel.add(folderopenButton);
 		northPanel.add(refreshButton);
 		
 		northPanel.repaint();

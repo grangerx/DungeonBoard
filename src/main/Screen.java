@@ -9,7 +9,7 @@ import java.awt.Rectangle;
  * @author McAJBen <McAJBen@gmail.com>
  * @since 2.0
  */
-public class Screen {
+public class Screen implements Comparable<Screen> {
 	
 	/**
 	 * the dimensions and position of the {@code Screen}
@@ -22,17 +22,36 @@ public class Screen {
 	private final String name;
 	
 	/**
+	 * boolean - is this the default graphicdevice ?
+	 */
+	private final boolean defaultstatus;
+	
+	/**
 	 * creates a {@code Screen} instance by using a {@code GraphicsDevice}
 	 * @param graphicsDevice the {@code GraphicsDevice} related to the display
 	 */
-	public Screen(GraphicsDevice graphicsDevice) {
+	public Screen(GraphicsDevice graphicsDevice, boolean blnDefaultParam) {
 		rectangle = graphicsDevice.getDefaultConfiguration().getBounds();
 		name = graphicsDevice.getIDstring();
+		defaultstatus = blnDefaultParam;
 	}
+	
+	/**
+	 * Implements a compareTo interface for sort ordering on screens
+	 */
+	@Override
+    public int compareTo(Screen that) {
+		double thatx = that.getRectangle().getX();
+
+        if(this.getRectangle().getX() == that.getRectangle().getX())
+            return 0;
+        else
+        	return Double.compare(this.getRectangle().x, thatx);
+    }
 	
 	@Override
 	public String toString() {
-		return name + "  " + rectangle.width + "x" + rectangle.height;
+		return name + " " + rectangle.width + "x" + rectangle.height + ((defaultstatus == true) ? " (Main)" : "") ;
 	}
 
 	/**
@@ -50,4 +69,6 @@ public class Screen {
 	public Rectangle getRectangle() {
 		return rectangle;
 	}
+	
+
 }
