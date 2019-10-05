@@ -1,7 +1,8 @@
 # Dungeon Board
 A board game map viewer for DMs and GMs to show players maps/dungeons without spoiling too much
 
-Changes since forking from McAJBen
+
+## Changes since forking from McAJBen
 - Sorts displays from left to right based on desktop alignment.
 - Has Folder-Open Button at upper left of window (opens to resource folder).
 - The Paint window now allows the zoom-area center to be all the way to the edge of the window.
@@ -60,7 +61,7 @@ The main use case is for the DM to show 'loading tips' to distract the players a
 ## Controls
 <img src="Examples/guide.png" alt="Guide"><br>
 ## Running Dungeon Board
-<a href="https://github.com/McAJBen/DungeonBoard/raw/master/Versions/Dungeon%20Board%20v2.4.1.jar">Download 2.4.1</a>
+<a href="https://github.com/grangerx/DungeonBoard/raw/master/Versions/DungeonBoard-grangerx-20190922.jar">Download DungeonBoard--grangerx-20190922 (based on v2.4.1)</a>
 <br>
 <i>Caution, web browsers do not like .jar files. They can be used to give viruses. Do your research before downloading (Don't take my word for it).</i>
 <br>
@@ -69,4 +70,4 @@ The next time you run Dungeon Board it will automatically load these on startup.
 <br><br>
 If you want to run Dungeon Board with more memory allocated you have to run the .jar file from the command line.
 <br>
-<i>&nbsp;&nbsp;java -jar -Xmx1000m "Dungeon Board v2.4.1.jar"</i>
+<i>&nbsp;&nbsp;java -jar -Xmx1000m "DungeonBoard-grangerx-20190922.jar"</i>
